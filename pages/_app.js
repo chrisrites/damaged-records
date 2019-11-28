@@ -5,6 +5,7 @@ import { parseCookies, destroyCookie } from "nookies";
 import { redirectUser } from "../utils/auth";
 import baseUrl from "../utils/baseUrl";
 import axios from "axios";
+import Router from "next/router";
 
 class MyApp extends App {
   // This getInitialProps function is a NEXT feature.  Each component that relies on it will invoke it from
@@ -33,6 +34,14 @@ class MyApp extends App {
         const url = `${baseUrl}/api/account`;
         const response = await axios.get(url, payload);
         const user = response.data;
+        const isRoot = user.role === "root";
+        const isAdmin = user.role === "admin";
+        // if authenticated but not of role admin or root, we want to redirect from the '/create' page
+        const isNotPermitted =
+          !(isRoot || isAdmin) && ctx.pathname === "/create";
+        if (isNotPermitted) {
+          redirectUser(ctx, "/");
+        }
         // pass our user to our pageProps so our whole app has user
         pageProps.user = user;
       } catch (error) {
@@ -48,6 +57,20 @@ class MyApp extends App {
     // ES6 syntax. 'pageProps; is the same as 'pageProps: pageProps;
     return { pageProps };
   }
+
+  componentDidMount() {
+    // detect when local storage changes so we know when a user has signed out in any browser window.
+    // See /utils/auth
+    window.addEventListener("storage", this.syncLogout);
+  }
+
+  syncLogout = event => {
+    // 'logout' is the value we provided to local storage in the handleLogout function in the utils/auth file
+    if (event.key === "logout") {
+      // console.log("logged out from storage");
+      Router.push("/login");
+    }
+  };
 
   render() {
     const { Component, pageProps } = this.props;

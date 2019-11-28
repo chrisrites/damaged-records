@@ -20,3 +20,11 @@ export function redirectUser(ctx, location) {
     Router.push(location);
   }
 }
+
+export function handleLogout() {
+  cookie.remove("token");
+  // We need to supply SOME data to this setItem call so we're giving in Date.now()
+  // just so that we've provided SOMETHING
+  window.localStorage.setItem("logout", Date.now());
+  Router.push("/login");
+}
