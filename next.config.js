@@ -6,6 +6,6 @@ module.exports = {
     JWT_SECRET: "ldfjs534hlhgdfkdjshfj$%#j",
     CLOUDINARY_URL:
       "https://api.cloudinary.com/v1_1/chrischartranddevelopment/image/upload",
-    STRIPE_SECRET_KEY: "<insert-stripe-secret-key>"
+    STRIPE_SECRET_KEY: "sk_test_pyHwg5848GHdnBe4iWz8ZwJ900aZawRfQ4"
   }
 };
