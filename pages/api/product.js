@@ -1,4 +1,5 @@
 import Product from "../../models/Product";
+import Cart from "../../models/Cart";
 import connectDb from "../../utils/connectDb";
 
 connectDb();
@@ -53,7 +54,20 @@ async function handlePostRequest(req, res) {
 
 async function handleDeleteRequest(req, res) {
   const { _id } = req.query;
-  await Product.findOneAndDelete({ _id });
-  // 204, No content.  Delete was successful, but no content to send back
-  res.status(204).json({});
+  try {
+    // 1) Delete product by id
+    await Product.findOneAndDelete({ _id });
+    // 2) Remove product from all carts, referenced as 'product'.  This is a cascade delete
+    // as opposed to an atomic delete.  A cascade delete deletes from multiple documents
+    await Cart.updateMany(
+      { "products.product": _id },
+      // Pull from the products array (Products in all carts), the product that matches our _id
+      { $pull: { products: { product: _id } } }
+    );
+    // 204: No content.  Delete was successful, but no content to send back
+    res.status(204).json({});
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error deleting product");
+  }
 }
