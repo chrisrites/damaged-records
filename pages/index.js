@@ -6,7 +6,7 @@ import baseUrl from "../utils/baseUrl";
 
 function Home({ products, totalPages }) {
   return (
-    <div style={{ paddingBottom: "13em" }}>
+    <div style={{ paddingBottom: "14em" }}>
       <ProductList products={products} />
       <ProductPagination totalPages={totalPages} />
     </div>

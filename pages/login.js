@@ -49,7 +49,7 @@ function Login() {
   }
 
   return (
-    <div style={{ paddingBottom: "12em" }}>
+    <div style={{ paddingBottom: "17em" }}>
       <Message
         attached
         icon="privacy"

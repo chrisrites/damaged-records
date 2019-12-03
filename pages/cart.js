@@ -41,7 +41,7 @@ function Cart({ products, user }) {
   }
 
   return (
-    <div style={{ paddingBottom: "20em" }}>
+    <div style={{ paddingBottom: "21em" }}>
       <Segment loading={loading}>
         <CartItemList
           handleRemoveFromCart={handleRemoveFromCart}

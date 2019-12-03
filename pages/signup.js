@@ -50,7 +50,7 @@ function Signup() {
   }
 
   return (
-    <div style={{ paddingBottom: "8em" }}>
+    <div style={{ paddingBottom: "14em" }}>
       <Message
         attached
         icon="settings"
