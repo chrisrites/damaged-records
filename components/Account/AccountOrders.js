@@ -59,8 +59,8 @@ function AccountOrders({ orders }) {
 
   return (
     <>
-      <Header as="h2">
-        <Icon name="folder open" />
+      <Header as="h2" inverted>
+        <Icon name="folder open" inverted />
         Order History
       </Header>
       {orders.length === 0 ? (

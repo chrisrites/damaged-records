@@ -7,8 +7,8 @@ function ProductSummary({ name, mediaUrl, _id, price, sku, user }) {
       <Item>
         <Item.Image size="medium" src={mediaUrl} />
         <Item.Content>
-          <Item.Header>{name}</Item.Header>
-          <Item.Description>
+          <Item.Header style={{ color: "white" }}>{name}</Item.Header>
+          <Item.Description style={{ color: "white" }}>
             <p>${price}</p>
             <Label>SKU: {sku}</Label>
           </Item.Description>

@@ -49,7 +49,7 @@ function Login() {
   }
 
   return (
-    <>
+    <div style={{ paddingBottom: "12em" }}>
       <Message
         attached
         icon="privacy"
@@ -99,7 +99,7 @@ function Login() {
         </Link>{" "}
         instead.
       </Message>
-    </>
+    </div>
   );
 }
 

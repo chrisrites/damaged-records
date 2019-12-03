@@ -1,6 +1,6 @@
 :root {
   /*--bodyBg: #f0f4f8;*/
-  --bodyBg: black;
+  --bodyBg: #262626;
   /* --menuBg: #334d68; */
   --menuBg: black;
   --progressBar: #54d1db;
@@ -8,11 +8,16 @@
 
 body {
   background: var(--bodyBg);
+  background-color: #262626;
 }
 
 #menu {
   background: var(--menuBg);
 }
+
+/* #container {
+  background: black;
+} */
 
 /* Overrides default styled accordion styles (too much bottom padding) */
 .ui.styled.accordion .content {

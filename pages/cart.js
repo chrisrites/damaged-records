@@ -41,19 +41,21 @@ function Cart({ products, user }) {
   }
 
   return (
-    <Segment loading={loading}>
-      <CartItemList
-        handleRemoveFromCart={handleRemoveFromCart}
-        products={cartProducts}
-        user={user}
-        success={success}
-      />
-      <CartSummary
-        products={cartProducts}
-        handleCheckout={handleCheckout}
-        success={success}
-      />
-    </Segment>
+    <div style={{ paddingBottom: "20em" }}>
+      <Segment loading={loading}>
+        <CartItemList
+          handleRemoveFromCart={handleRemoveFromCart}
+          products={cartProducts}
+          user={user}
+          success={success}
+        />
+        <CartSummary
+          products={cartProducts}
+          handleCheckout={handleCheckout}
+          success={success}
+        />
+      </Segment>
+    </div>
   );
 }
 

@@ -90,7 +90,7 @@ function CreateProduct() {
   }
 
   return (
-    <>
+    <div style={{ paddingBottom: "18em" }}>
       <Header as="h2" block>
         <Icon name="add" color="orange" />
         Create New Product
@@ -100,6 +100,7 @@ function CreateProduct() {
         error={Boolean(error)}
         success={success}
         onSubmit={handleSubmit}
+        inverted
       >
         {/* This Message will appear when the success state is true as used in the Form component above */}
         <Message error header="Oops!" content={error} />
@@ -160,7 +161,7 @@ function CreateProduct() {
           type="submit"
         />
       </Form>
-    </>
+    </div>
   );
 }
 

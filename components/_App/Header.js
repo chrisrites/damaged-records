@@ -29,7 +29,12 @@ function Header({ user }) {
               src="/static/logo.png"
               style={{ marginRight: "1em" }}
             />
-            DAMAGED RECORDS
+            <Image
+              size="small"
+              src="/static/damagedrecordswhite.png"
+              style={{ marginRight: "1em" }}
+            />
+            {/* DAMAGED RECORDS */}
           </Menu.Item>
         </Link>
         <Link href="/cart">

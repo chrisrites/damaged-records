@@ -50,7 +50,7 @@ function Signup() {
   }
 
   return (
-    <>
+    <div style={{ paddingBottom: "8em" }}>
       <Message
         attached
         icon="settings"
@@ -110,7 +110,7 @@ function Signup() {
         </Link>{" "}
         instead.
       </Message>
-    </>
+    </div>
   );
 }
 

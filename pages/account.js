@@ -7,12 +7,12 @@ import axios from "axios";
 
 function Account({ user, orders }) {
   return (
-    <>
+    <div style={{ paddingBottom: "1em" }}>
       <AccountHeader {...user} />
       <AccountOrders orders={orders} />
       {/* // If user.role='root', display AccountPermissions component */}
       {user.role === "root" && <AccountPermissions currentUserId={user._id} />}
-    </>
+    </div>
   );
 }
 

@@ -6,6 +6,7 @@ import { redirectUser } from "../utils/auth";
 import baseUrl from "../utils/baseUrl";
 import axios from "axios";
 import Router from "next/router";
+import { Grid } from "semantic-ui-react";
 
 class MyApp extends App {
   // This getInitialProps function is a NEXT feature.  Each component that relies on it will invoke it from
@@ -42,7 +43,7 @@ class MyApp extends App {
         if (isNotPermitted) {
           redirectUser(ctx, "/");
         }
-        // pass our user to our pageProps so our whole app has user
+        // pass our user to pageProps so our whole app has user
         pageProps.user = user;
       } catch (error) {
         console.error("Error getting current user");
@@ -75,9 +76,11 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Layout {...pageProps}>
-        <Component {...pageProps} />
-      </Layout>
+      <Grid.Column style={{ background: "#262626" }}>
+        <Layout {...pageProps}>
+          <Component {...pageProps} />
+        </Layout>
+      </Grid.Column>
     );
   }
 }

@@ -20,8 +20,10 @@ function ProductAttributes({ description, _id, user }) {
 
   return (
     <>
-      <Header as="h3">About this product</Header>
-      <p>{description}</p>
+      <Header as="h3" style={{ color: "white" }}>
+        About this product
+      </Header>
+      <p style={{ color: "white" }}>{description}</p>
       {isRootOrAdmin && (
         <>
           <Button
